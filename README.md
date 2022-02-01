@@ -1,0 +1,1 @@
+# hello-near-contract-testing
