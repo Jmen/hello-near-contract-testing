@@ -1,4 +1,4 @@
-const { connect, KeyPair, keyStores, utils } = require("near-api-js");
+const { connect, keyStores, utils } = require("near-api-js");
 const keyStore = new keyStores.InMemoryKeyStore();
 const config = {
     keyStore,
@@ -8,9 +8,8 @@ const config = {
 
 it('call a near nft contract', async() => {
 
-    const encodedKey = utils.serialize.base_encode("private_key");
+    const keyPair = new utils.key_pair.KeyPairEd25519('private-key');
 
-    const keyPair = KeyPair.fromString(encodedKey);
     await keyStore.setKey(config.networkId, "j_men.testnet", keyPair);
 
     const near = await connect(config);
